@@ -3,34 +3,35 @@ body {
   padding: 0;
   overflow-x: hidden;
   background: #E8E2EE;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Kumpulkan semua di tengah skrin */
+  justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Guna 100vh supaya duduk tengah-tengah phone */
+  min-height: 100vh;
   width: 100vw;
 }
 
 #wish {
   text-align: center;
-  margin-bottom: 30px; /* Jarak antara tulisan & kotak hadiah (Adjust ikut suka) */
+  /* Jarak selamat supaya tak kena kucing bila melompat */
+  margin-bottom: 70px; 
 }
 
 #wish .row {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 #wish .space {
   display: inline-block;
-  width: 15px; /* Jarak antara perkataan */
+  width: 12px;
 }
 
 #wish div {
-  font-size: 30px; /* Saiz yang muat untuk skrin telefon */
+  font-size: 26px; /* Saiz ideal untuk phone */
   font-weight: bold;
   color: #F44336;
   text-shadow: 0px 2px 1px rgba(0,0,0,0.1);
@@ -39,14 +40,14 @@ body {
   margin: 0 1px;
 }
 
-/* Animasi dari Animate.css */
+/* Animasi Helper */
 .bounceInDown { opacity: 1 !important; }
 .swing { animation-iteration-count: infinite; opacity: 1 !important; }
 
-/* Bahagian Hadiah */
+/* Kotak Hadiah */
 #present {
-  width: 260px;
-  height: 190px;
+  width: 240px; /* Kecilkan sikit supaya muat skrin sempit */
+  height: 180px;
   position: relative;
   cursor: pointer;
   opacity: 0;
@@ -63,9 +64,9 @@ body {
 }
 
 #present #top {
-  width: 300px;
+  width: 280px;
   background: #ffffff;
-  height: 55px;
+  height: 50px;
   position: absolute;
   top: -15px;
   left: -20px;
@@ -83,29 +84,29 @@ body {
 #present #cat {
   position: absolute;
   top: 10px;
-  width: 65%;
+  width: 60%;
   left: 0; right: 0;
   margin: 0 auto;
   transition: all 1.5s ease-out;
   z-index: 1;
 }
 
-/* Kotak Pesanan */
+/* Kotak Pesanan (Dibetulkan untuk Mobile) */
 #message {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 170px;
   background: white;
-  padding: 12px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   opacity: 0;
   transition: all 1.2s ease;
   z-index: 10;
   color: #F44336;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   pointer-events: none;
 }
