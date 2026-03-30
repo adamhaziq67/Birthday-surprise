@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  // Kotak muncul mula-mula
+  // Kotak hadiah muncul dari atas
   $("#present").addClass("animated bounceInDown");
 
-  // Hover effect penutup
+  // Efek hover
   $("#present").hover(function(){
       $("#present #top").addClass("animated bounce");
   }, function(){
@@ -15,19 +15,20 @@ $(document).ready(function(){
     $(this).unbind("click");
     $(this).unbind("mouseleave");
 
-    // Kucing melompat & Ayat meluncur selepas 1 saat
+    // Kucing melompat & Ayat meluncur
     setTimeout(function(){
-      $("#present #cat").css("top", "-130px");
+      // Kucing naik
+      $("#present #cat").css("top", "-120px");
       
-      // Mesej meluncur ke kiri (Adjust -240px ikut lebar skrin phone anda)
+      // Mesej meluncur ke kiri (Nilai -180px adalah selamat untuk phone)
       $("#message").css({
         "opacity": "1",
-        "left": "-230px", 
-        "top": "-40px"
+        "left": "-185px", 
+        "top": "-20px"
       });
     }, 1000);
 
-    // Huruf Happy Birthday jatuh satu-persatu
+    // Huruf ucapan jatuh satu-persatu
     $("#wish").find("div").each(function(index){
       setTimeout(bounceIn.bind(null, $(this)), 2000 + index * 80);
     });
