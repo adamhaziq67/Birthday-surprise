@@ -1,48 +1,42 @@
 $(document).ready(function(){
-  // 1. Kotak hadiah jatuh dari atas bila mula-mula buka (Animasi Asal)
+  // Kotak hadiah muncul
   $("#present").addClass("animated bounceInDown");
 
-  // 2. Bila letak mouse (hover), penutup kotak melompat sikit
+  // Animasi hover pada penutup
   $("#present").hover(function(){
       $("#present #top").addClass("animated bounce");
   }, function(){
       $("#present #top").removeClass("animated bounce");
   });
 
-  // 3. BILA KOTAK DIKLIK
+  // Bila kotak diklik
   $("#present").on("click", function(){
-    $("#present #top").removeClass("animated bounce");
-    
-    // Penutup kotak terbang ke atas dan hilang
-    $("#present #top").addClass("animated bounceOutUp");
-    
+    $("#present #top").removeClass("animated bounce").addClass("animated bounceOutUp");
     $(this).unbind("click");
     $(this).unbind("mouseleave");
 
-    // Kucing melompat naik DAN Ayat meluncur ke kiri selepas 1 saat
+    // Kucing melompat & Pesanan meluncur ke kiri selepas 1 saat
     setTimeout(function(){
-      // Kucing naik atas kotak
-      $("#present #cat").css("top", "-160px");
+      $("#present #cat").css("top", "-140px");
       
-      // AYAT MELUNCUR KE KIRI (Supaya tak kena tutup dengan kucing)
+      // Mesej meluncur keluar
       $("#message").css({
         "opacity": "1",
-        "left": "-280px", // Bergerak ke kiri kotak
-        "top": "-50px"    // Naik atas sikit supaya selari dengan kucing
+        "left": "-250px", // Adjust ke kiri
+        "top": "-40px"
       });
-
     }, 1000);
 
-    // Huruf "HAPPY BIRTHDAY HAKIM IZAFRA" jatuh satu-persatu
-    $("#wish").children("div").each(function(index){
-      setTimeout(bounceIn.bind(null, $(this)), 2500+index*100)
+    // Ucapan jatuh satu-satu
+    $("#wish").find("div").each(function(index){
+      setTimeout(bounceIn.bind(null, $(this)), 2000 + index * 100);
     });
   });
 
   function bounceIn(el){
     el.addClass("animated bounceInDown swing");
     setTimeout(function(){
-      el.removeClass("bounceInDown").addClass("swing")
+      el.removeClass("bounceInDown").addClass("swing");
     }, 1000);
   }
 });
